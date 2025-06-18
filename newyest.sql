@@ -5,7 +5,7 @@ CREATE TABLE vendedor (
     data_admissao TIMESTAMP NOT NULL
 );
 
-CREATE TYPE status_compra AS ENUM("pendente", "processando", "finalizada");
+CREATE TYPE status_compra AS ENUM('pendente', 'processando', 'finalizada');
 
 CREATE TABLE compra (
     id_compra SERIAL PRIMARY KEY,
