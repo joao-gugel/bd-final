@@ -1,13 +1,15 @@
 CREATE TABLE vendedor (
     id_vendedor SERIAL PRIMARY KEY,
     nome VARCHAR(64) NOT NULL,
-    cpf VARCHAR(11) NOT NULL,
+    cpf VARCHAR(11) NOT NULL UNIQUE,
     data_admissao TIMESTAMP NOT NULL
 );
 
+CREATE TYPE status_compra AS ENUM("pendente", "processando", "finalizada");
+
 CREATE TABLE compra (
     id_compra SERIAL PRIMARY KEY,
-    status VARCHAR(32) NOT NULL,
+    status status_compra NOT NULL,
     data TIMESTAMP NOT NULL,
     id_vendedor INT,
     id_cliente INT,
@@ -22,9 +24,9 @@ CREATE TABLE pagamento (
 CREATE TABLE cliente (
     id_cliente SERIAL PRIMARY KEY,
     nome VARCHAR(64) NOT NULL,
-    cpf VARCHAR(11) NOT NULL,
+    cpf VARCHAR(11) NOT NULL UNIQUE,
     telefone VARCHAR(11) NULL,
-    email VARCHAR(256) NOT NULL,
+    email VARCHAR(256) NOT NULL UNIQUE,
     endereco VARCHAR(256) NOT NULL 
 );
 

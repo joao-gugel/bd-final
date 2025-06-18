@@ -1,5 +1,5 @@
 SELECT
-	p.id,
+	p.id_produto,
 	p.nome,
 	p.preco,
 	p.quantidade_estoque,
@@ -7,5 +7,5 @@ SELECT
 FROM
 	produto p 
 JOIN
-	estoque e ON p.id_estoque = e.id
+	estoque e ON p.id_estoque = e.id_estoque
 WHERE p.quantidade_estoque < 20;

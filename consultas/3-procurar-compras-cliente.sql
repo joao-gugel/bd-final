@@ -1,5 +1,5 @@
 SELECT 
-    cp.id AS id_compra,
+    cp.id_compra,
     cp.status,
     cp.data,
     vd.nome AS vendedor,
@@ -8,14 +8,14 @@ SELECT
 FROM 
     compra cp
 JOIN 
-    item_compra ic ON ic.id_compra = cp.id
+    item_compra ic ON ic.id_compra = cp.id_compra
 JOIN 
-    produto p ON ic.id_produto = p.id
+    produto p ON ic.id_produto = p.id_produto
 JOIN 
-    cliente cl ON cl.id = cp.id_cliente
+    cliente cl ON cl.id_cliente = cp.id_cliente
 JOIN 
-    vendedor vd ON vd.id = cp.id_vendedor
+    vendedor vd ON vd.id_vendedor = cp.id_vendedor
 WHERE 
-    cp.id = 5
+    cp.id_compra = 5
 GROUP BY 
-    cp.id, vd.nome, cl.nome;
+    cp.id_compra, vd.nome, cl.nome;
